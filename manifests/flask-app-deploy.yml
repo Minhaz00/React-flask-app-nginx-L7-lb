@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: flask-app
-        image: flask-app-image:latest
+        image: minhaz71/my-react-fe:latest
         ports:
         - containerPort: 5000
 
