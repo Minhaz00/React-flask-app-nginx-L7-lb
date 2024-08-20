@@ -60,7 +60,7 @@ For this project, we need an instance for NGINX, and three instance for k3s (mas
     sudo apt install python3.8-venv
     ```
 
-2. **Initialize a New Pulumi Project**:
+3. **Initialize a New Pulumi Project**:
 - Run the following command to create a new Pulumi project:
 
     ```sh
@@ -68,7 +68,7 @@ For this project, we need an instance for NGINX, and three instance for k3s (mas
     ```
     Follow the prompts to set up your project.
 
-3. **Create Key Pair**:
+4. **Create Key Pair**:
 
 - Create a new key pair for our instances using the following command:
 
@@ -78,7 +78,7 @@ For this project, we need an instance for NGINX, and three instance for k3s (mas
 
     These commands will create key pair for nginx instance and for k3s cluster(master, worker1, worker2)
 
-4. **Set File Permissions of the key files**:
+5. **Set File Permissions of the key files**:
 
 - **For Linux**:
     ```sh

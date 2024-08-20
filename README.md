@@ -250,7 +250,7 @@ cd backend
 
 Create `app.py` in the `backend` directory and edit as follows:
 
-```sh
+```python
 from flask import Flask, jsonify
 from flask_cors import CORS
 
@@ -272,7 +272,7 @@ if __name__ == '__main__':
 
 ### Create the `Dockerfile`
 
-```sh
+```Dockerfile
 # Use an official Python runtime as a parent image
 FROM python:3.9-slim
 
@@ -293,7 +293,6 @@ ENV FLASK_APP=app.py
 
 # Run app.py when the container launches
 CMD ["python", "app.py"]
-
 ```
 
 ### Build and push the image to docker hub

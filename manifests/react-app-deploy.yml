@@ -20,8 +20,8 @@ spec:
         env:
         - name: REACT_APP_API_URL
           value: "http://127.0.0.1:50405"
-      nodeSelector:
-        role: worker-node    
+      # nodeSelector:
+      #   role: worker-node    
 
 ---
 apiVersion: v1
