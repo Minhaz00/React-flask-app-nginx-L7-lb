@@ -229,7 +229,7 @@ For this project, we need an instance for NGINX, and three instance for k3s (mas
     ```
     Review the changes and confirm by typing "yes".
 
-    ![alt text](./images/image-8.png)
+    ![alt text](https://raw.githubusercontent.com/AhnafNabil/React-flask-app-nginx-L7-lb/main/images/image-8.png)
 
 ### Verify the Deployment
 
