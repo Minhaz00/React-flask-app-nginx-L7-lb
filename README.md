@@ -311,7 +311,7 @@ docker push <your-docker-hub-username>/my-flask-api
 Use the following command to create a react app locally:
 
 ```bash
-npx create-react-app frontend
+npx create-react-app frontend .
 ```
 
 ### Edit `app.js` file:
