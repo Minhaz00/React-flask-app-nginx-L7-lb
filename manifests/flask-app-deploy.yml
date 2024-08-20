@@ -17,6 +17,9 @@ spec:
         image: minhaz71/my-flask-api:latest
         ports:
         - containerPort: 5000
+      nodeSelector:
+        role: worker-node
+
 
 ---
 apiVersion: v1
