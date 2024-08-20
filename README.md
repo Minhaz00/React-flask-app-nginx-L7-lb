@@ -2,7 +2,7 @@
 
 In this lab, we will set up a lightweight Kubernetes environment using `K3s` on an AWS EC2 instance. Following the installation, we will configure Nginx as a `Layer 7 load balancer` to manage traffic to worker nodes. The services will be exposed using Kubernetes NodePort, allowing external access through Nginx.
 
-![alt text](./images/image-7.png)
+![alt text](https://github.com/Minhaz00/React-flask-app-nginx-L7-lb/blob/main/images/image-7.png?raw=true)
 
 ## Task description
 ### These are the task we will perform in this lab:
@@ -25,7 +25,7 @@ In this lab, we will set up a lightweight Kubernetes environment using `K3s` on 
 
 For this project, we need an instance for NGINX, and three instance for k3s (master-instance, worker1-instance, worker2-instance) and other necessary resouces.
 
-![alt text](./images/image-6.jpg)
+![alt text](https://github.com/Minhaz00/React-flask-app-nginx-L7-lb/blob/main/images/image-6.jpg?raw=true)
 
 ### Configure AWS CLI
 
@@ -236,41 +236,39 @@ For this project, we need an instance for NGINX, and three instance for k3s (mas
 
 ### Verify the Deployment
 
-**Check the Outputs**:
-
-- After the deployment completes, you should see the exported VPC ID, public subnet ID, private subnet ID, NAT Gateway ID, and instance IDs in the output.
+You can varify the creteated resources such as VPC, Subnet, EC2 instance using AWS console.
 
 ## Step 2: Create a simple flask server, build image, push to docker hub
 
 ### Create a directory in your **local machine** (e.g., flask-server)
 
-    ```sh
-    mkdir backend
-    cd backend
-    ```
+```sh
+mkdir backend
+cd backend
+```
 ### Create a file `app.py`
 
 Create `app.py` in the `backend` directory and edit as follows:
 
-    ```sh
-    from flask import Flask, jsonify
-    from flask_cors import CORS
+```sh
+from flask import Flask, jsonify
+from flask_cors import CORS
 
 
-    app = Flask(__name__)
-    CORS(app)
+app = Flask(__name__)
+CORS(app)
 
-    @app.route('/', methods=['GET'])
-    def hello_world():
-        return jsonify({"message": "Hello world!"})
+@app.route('/', methods=['GET'])
+def hello_world():
+    return jsonify({"message": "Hello world!"})
 
-    @app.route('/api/message', methods=['GET'])
-    def get_message():
-        return jsonify({"message": "Hello from Flask API server!"})
+@app.route('/api/message', methods=['GET'])
+def get_message():
+    return jsonify({"message": "Hello from Flask API server!"})
 
-    if __name__ == '__main__':
-        app.run(host='0.0.0.0', port=5000)
-    ```
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)
+```
 
 ### Create the `Dockerfile`
 
@@ -502,7 +500,7 @@ After this command, exit the terminal and again ssh into the servers to check if
 
 - After installation, the master node should become the **control plane** for your Kubernetes cluster.
 
-    ![alt text](https://github.com/Konami33/Nginx-load-balancer/raw/main/img/image-5.png)
+    ![alt text](https://github.com/Konami33/Nginx-load-balancer/raw/main/img/image-5.png?raw=true)
 
 ### Join Worker Nodes to the Cluster:
 
@@ -511,7 +509,7 @@ After this command, exit the terminal and again ssh into the servers to check if
     ```bash
     sudo cat /var/lib/rancher/k3s/server/node-token
     ```
-    ![alt text](https://github.com/Konami33/Nginx-load-balancer/raw/main/img/image-15.png)
+    ![alt text](https://github.com/Konami33/Nginx-load-balancer/raw/main/img/image-15.png?raw=true)
 
 - Copy the token.
 
@@ -523,7 +521,7 @@ After this command, exit the terminal and again ssh into the servers to check if
 
 - Check the status of k3s-agent
 
-    ![alt text](https://github.com/Konami33/Nginx-load-balancer/raw/main/img/image-6.png)
+    ![alt text](https://github.com/Konami33/Nginx-load-balancer/raw/main/img/image-6.png?raw=true)
 
 ### Verify Cluster Setup
 
@@ -540,7 +538,7 @@ After this command, exit the terminal and again ssh into the servers to check if
 
 - You should see the master node and both worker nodes listed as ready.
 
-    ![alt text](https://github.com/Konami33/Nginx-load-balancer/raw/main/img/image-7.png)
+    ![alt text](https://github.com/Konami33/Nginx-load-balancer/raw/main/img/image-7.png?raw=true)
 
 
 ## Step 6: Deploy the servers in k3s cluster.
@@ -659,7 +657,7 @@ We need to label both worker nodes as we want to deploy the flask server in both
     ```bash
     kubectl label nodes <worker-node-2> role=worker-node
     ```
-    ![alt text](./images/image-2.png)
+    ![alt text](https://github.com/Minhaz00/React-flask-app-nginx-L7-lb/blob/main/images/image-2.png?raw=true)
 
     **NOTE:** Make sure to replace with your worker node name.
 
@@ -678,7 +676,7 @@ We need to label both worker nodes as we want to deploy the flask server in both
     kubectl get all
     ```
 
-    ![alt text](./images/image-1.png)
+    ![alt text](https://github.com/Minhaz00/React-flask-app-nginx-L7-lb/blob/main/images/image-1.png?raw=true)
 
 You can see the created pods, deployemt and service. Make sure all are in the running state.
 
@@ -810,7 +808,7 @@ Scroll to the end of the file and add your IP addresses and corresponding domain
 
 Replace `<nginx-public-IP>` with your nginx instance public IP. **http://food-fe.poridhi.io** and **http://food-api.poridhi.io**: The domain names you want to resolve to the specified IP address.
 
-![alt text](./images/image-3.jpg)
+![alt text](https://github.com/Minhaz00/React-flask-app-nginx-L7-lb/blob/main/images/image-3.jpg?raw=true)
 
 After adding your entries, save the file and exit the editor.
 Now, your Linux system will resolve `food-fe.poridhi.io` and `food-api.poridhi.io` to `<nginx-public-IP>` as specified in the `/etc/hosts` file.
@@ -824,9 +822,9 @@ Now, your Linux system will resolve `food-fe.poridhi.io` and `food-api.poridhi.i
 
 Now open the domain names in the browser to see the react app and flask server through the nginx layer 7 load balancer.
 
-![alt text](./images/image-4.jpg)
+![alt text](https://github.com/Minhaz00/React-flask-app-nginx-L7-lb/blob/main/images/image-4.jpg?raw=true)
 
-![alt text](./images/image-5.jpg)
+![alt text](https://github.com/Minhaz00/React-flask-app-nginx-L7-lb/blob/main/images/image-5.jpg?raw=true)
 
 ## Conclusion
 
