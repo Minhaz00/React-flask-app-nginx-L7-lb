@@ -5,7 +5,9 @@ function App() {
   const [message, setMessage] = useState('');
 
   useEffect(() => {
-    fetch('http://127.0.0.1:5000/api/message')
+    
+   const apiUrl = process.env.REACT_APP_API_URL;
+    fetch(`${apiUrl}/api/message`)
       .then(response => response.json())
       .then(data => {
         setMessage(data.message);
