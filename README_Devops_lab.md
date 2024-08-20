@@ -53,6 +53,13 @@ For this project, we need an instance for NGINX, and three instance for k3s (mas
     cd aws-k3s-infra
     ```
 
+2. **Install python `venv`**:
+
+    ```sh 
+    sudo apt update
+    sudo apt install python3.8-venv
+    ```
+
 2. **Initialize a New Pulumi Project**:
 - Run the following command to create a new Pulumi project:
 
@@ -61,7 +68,7 @@ For this project, we need an instance for NGINX, and three instance for k3s (mas
     ```
     Follow the prompts to set up your project.
 
-3. **Create Key Pair:**:
+3. **Create Key Pair**:
 
 - Create a new key pair for our instances using the following command:
 
@@ -221,6 +228,8 @@ For this project, we need an instance for NGINX, and three instance for k3s (mas
     pulumi up
     ```
     Review the changes and confirm by typing "yes".
+
+    ![alt text](https://raw.githubusercontent.com/AhnafNabil/React-flask-app-nginx-L7-lb/main/images/image-8.png)
 
 ### Verify the Deployment
 
